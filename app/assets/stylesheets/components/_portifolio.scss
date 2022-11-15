@@ -1,0 +1,167 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+
+  font: 500 100% system-ui, sans-serif;
+  text-transform: uppercase;
+}
+
+.page-wrap {
+  background: white;
+  height: calc(100vh - 10px);
+  box-shadow: 0 0 3px rgba(black, 0.33);
+
+  display: grid;
+  grid-template-columns: minmax(10px, 1fr) minmax(10px, 3fr);
+  grid-template-rows: min-content min-content 1fr min-content;
+  gap: 1px;
+
+  >* {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+
+    >* {
+      grid-column: 1 / -1 !important;
+      grid-row: auto !important;
+    }
+  }
+}
+
+.page-header {
+  grid-column: 1 / -1;
+  background: #212529;
+  border-top: 1px solid white;
+  color: white;
+}
+
+.page-sidebar {
+  grid-column: 1 / 2;
+  grid-row: 2 / 4;
+  background: #212529;
+}
+
+.page-nav {
+  grid-column: 2 / 3;
+  background: #212529;
+  color: white;
+}
+
+.page-main {
+  grid-column: 2 / 3;
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
+}
+
+.page-main h3 {
+  font-family: $title-font;
+  font-weight: medium;
+  padding: 1rem;
+  text-shadow: 1px 1px 2px rgba(37, 37, 37, 0.76);
+}
+
+details p {
+  text-transform: none;
+  text-align: left;
+}
+
+.table-container th {
+  font-size: 16px;
+  font-family: $body-font;
+}
+
+#td-header{
+  color: #57D3D4;
+}
+
+#tr-header {
+  color: #ffffff;
+}
+
+#Table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #B1A3E4;
+  font-size: 18px;
+}
+
+#Table th,
+#Table td {
+  text-align: left;
+  padding: 12px;
+}
+
+#Table tr {
+  border-bottom: 1px solid #B1A3E4;
+}
+
+#Table tr.header,
+#Table tr:hover {
+  background-color: #313436;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 800px;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+th {
+  text-align: left;
+}
+
+thead {
+  th {
+    background-color: #55608f;
+  }
+}
+
+tbody {
+  tr {
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  td {
+    position: relative;
+
+    &:hover {
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -9999px;
+        bottom: -9999px;
+        background-color: rgba(255, 255, 255, 0.2);
+        z-index: -1;
+      }
+    }
+  }
+}
+
+#add-btn {
+  //float: left;
+  border-radius: 5%;
+}

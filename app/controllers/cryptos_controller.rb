@@ -1,8 +1,11 @@
 class CryptosController < ApplicationController
   before_action :set_crypto, only: %i[show edit update destroy]
+  before_action :api_connect, only: %i[index]
 
   def index
+    @cryptos_list = %w[BTC ETH USDT BNB USDC BUSD XRP ADA DOGE MATIC]
     @cryptos = Crypto.all
+    @user_cryptos = Crypto.where(user_id: current_user.id)
   end
 
   def show
@@ -17,10 +20,11 @@ class CryptosController < ApplicationController
 
   def create
     @crypto = Crypto.new(crypto_params)
+    @crypto.user = current_user
 
     respond_to do |format|
       if @crypto.save
-        format.html { redirect_to crypto_url(@crypto), notice: "Crypto was successfully created." }
+        format.html { redirect_to cryptos_path, notice: "Crypto was successfully created." }
         format.json { render :show, status: :created, location: @crypto }
       else
         format.html { render :new, status: :unprocessable_entity }

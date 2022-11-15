@@ -1,12 +1,150 @@
-<h1>Cryptos</h1>
+<div class="page-wrap">
+  <header class="page-header">
+    <article>
+      <details>
+        <summary>Financial Market News</summary>
+        <h4>blabla</h4>
+      </details>
+    </article>
+  </header>
+  <nav class="page-nav">
+    <article>
+      <details>
+        <summary>Crypto Trending</summary>
+        <h4>blabla</h4>
+      </details>
+    </article>
+  </nav>
+  <main class="page-main">
+    <div class="title">
+      <h3>User Portifolio</h3>
+    </div>
+    <%= link_to "Add Crypto", new_crypto_path, class: "btn btn-dark", type: "button", id: "add-btn" %>
+    <br/><br/><br/>
 
-<div id="cryptos">
-  <% @cryptos.each do |crypto| %>
-    <%= render crypto if crypto.user_id.eql?(current_user.id)%>
-    <p>
-      <%= link_to "Show this crypto", crypto %>
-    </p>
-  <% end %>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Cost Paid</th>
+            <th>Amount Owned</th>
+            <th>Current Price</th>
+            <th>Current Total Value</th>
+            <th>Toal Paid</th>
+            <th>Profit/Loss</th>
+            <th>
+              <select>
+                <option value="1">1 Hour Change</option>
+                <option value="2">1 Day Change</option>
+                <option value="1">1 Week Change</option>
+              </select>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @user_cryptos.each do |crypto| %>
+              <% crypto.symbol.upcase! %>
+                <% @coins&.dig('data').each do |coin| %>
+                  <% if crypto.symbol.upcase.eql?(coin&.dig('symbol')) %>
+                    <tr>
+                      <td><%= coin['name'] %></td>
+                      <td>$<%= crypto.unit_price %></td>
+                      <td><%= crypto.amount_owned %></td>
+                      <td>$<%= coin['quote']['USD']['price'] %></td>
+                      <td>$<%= coin['quote']['USD']['price'].to_d * crypto.amount_owned %></td>
+                      <td>$<%= crypto.unit_price * crypto.amount_owned %></td>
+                      <td><%= number_to_currency((coin['quote']['USD']['price'].to_d * crypto.amount_owned) - (crypto.unit_price * crypto.amount_owned)) %></td>
+                      <td><%= coin['quote']['USD']['percent_change_1h'] %>%</td>
+                    </tr>
+                  <% end %>
+                <% end %>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <br/>
+    </div>
+  </main>
+  <aside class="page-sidebar">
+    <table id="Table">
+      <tr class="header" id="tr-header">
+        <th style="width:60%;">Name</th>
+        <th style="width:40%;">Value</th>
+      </tr>
+      <% for x in @coins['data'] %>
+        <% for coin in @cryptos_list %>
+          <% if coin.eql?(x['symbol']) %>
+            <tr>
+              <td id="td-header"><%= x['name'] %></td>
+              <td id="td-header">$<%= x['quote']['USD']['price'] %></td>
+            </tr>
+
+          <% end %>
+        <% end %>
+      <% end %>
+    </table>
+  </aside>
 </div>
+<footer id="footer-container"class="text-center text-lg-start pt-4">
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <h5 id = "footer-main-txt" class="text-uppercase mb-4">OUR WORLD</h5>
 
-<%= link_to "New crypto", new_crypto_path %>
+        <ul id = "footer-links" class="list-unstyled mb-4">
+          <li>
+            <a href="#!" class="footer-secondary-txt">Learn About Crypto</a>
+          </li>
+          <li>
+            <a href="#!" class="footer-secondary-txt">Financial Market News</a>
+          </li>
+          <li>
+            <a href="#!" class="footer-secondary-txt">Crypto Investor Courses</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <h5 id = "footer-main-txt" class="text-uppercase mb-4">Assistance</h5>
+
+        <ul id = "footer-links" class="list-unstyled">
+          <li>
+            <a href="#!" class="footer-secondary-txt">Contact us</a>
+          </li>
+          <li>
+            <a href="#!" class="footer-secondary-txt">About us</a>
+          </li>
+          <li>
+            <a href="#!" class="footer-secondary-txt">Report a Bug</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <h5 id = "footer-main-txt" class="text-uppercase mb-4">Careers</h5>
+
+        <ul id = "footer-links" class="list-unstyled">
+          <li>
+            <a href="#!" class="footer-secondary-txt">Jobs</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+        <h5 id = "footer-main-txt" class="text-uppercase mb-4">Newsletter</h5>
+
+        <div class="form-outline form-white mb-4">
+          <input type="email" id="form5Example2" class="form-control" />
+        </div>
+
+        <button type="submit" id ="btn-footer" class="btn btn-outline-white btn-block">Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <div id = "footer-main-txt" class="footer-copyright p-3">
+    © 2022 Copyright MyCryptofolio
+  </div>
+</footer>

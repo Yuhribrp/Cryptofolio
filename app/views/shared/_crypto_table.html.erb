@@ -1,0 +1,26 @@
+<table class="table table-dark table-hover" id="myTable">
+  <thead>
+    <tr class="header">
+      <th scope="col">#Rank</th>
+      <th scope="col">Name</th>
+      <th scope="col">Symbol</th>
+      <th scope="col">Market Value</th>
+      <th scope="col">Total Suply</th>
+    </tr>
+  </thead>
+  <% for x in @coins['data'] %>
+    <% for coin in @cryptos_list %>
+      <% if coin.eql?(x['symbol']) %>
+        <tbody>
+          <tr>
+            <th scope="row"><%= x['cmc_rank'] %></th>
+            <td><%= x['name'] %></td>
+            <td><%= x['symbol'] %></td>
+            <td>$<%= x['quote']['USD']['price'] %></td>
+            <td><%= x['total_supply'] %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    <% end %>
+  <% end %>
+</table>
