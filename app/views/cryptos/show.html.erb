@@ -1,0 +1,8 @@
+<%= render @crypto %>
+
+<div>
+  <%= link_to "Edit this crypto", edit_crypto_path(@crypto) %> |
+  <%= link_to "Back to cryptos", cryptos_path %>
+
+  <%= button_to "Destroy this crypto", @crypto, method: :delete %>
+</div>

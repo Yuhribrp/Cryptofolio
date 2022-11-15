@@ -1,0 +1,110 @@
+<div class="live_market-wrapper">
+  <div class="live-market" style="background-image: linear-gradient(-225deg, rgba(0,71,198,0.1) 0%, rgba(0,36,61,0.1) 93%), url(<%= image_path 'live-market.jpg' %>);">
+    <h2> Crypto Currence Live Market </h2>
+    <%= link_to "Create Portifolio", cryptos_path, class: "btn btn-primary", type: "button", id: "new-btn" %>
+    <div data-controller="search-coins">
+      <%= form_with url: pages_live_market_path,
+        method: :get,
+        html: {class: "mb-4", data: {search_coins_target: "form"}} do |f|
+      %>
+        <%= f.text_field :text,
+          class: "form-control",
+          id: "myInput",
+          placeholder: "Search for Cryptos..",
+          value: params[:text],
+          data: {
+            search_coins_target: "input",
+            action: "keyup->search-coins#cryptoSearchEngine"
+          }
+        %>
+      <% end %>
+    </div>
+  </div>
+  <table class="table table-dark table-hover"  id="myTable">
+    <thead>
+      <tr class="header">
+        <th scope="col">#Rank</th>
+        <th scope="col">Name</th>
+        <th scope="col">Symbol</th>
+        <th scope="col">Market Value</th>
+        <th scope="col">Total Suply</th>
+      </tr>
+    </thead>
+    <% for x in @coins['data'] %>
+      <% for coin in @cryptos_list %>
+        <% if coin.eql?(x['symbol']) %>
+          <tbody>
+            <tr>
+              <th scope="row"><%= x['cmc_rank'] %></th>
+              <td><%= x['name'] %></td>
+              <td><%= x['symbol'] %></td>
+              <td>$<%= x['quote']['USD']['price'] %></td>
+              <td><%= x['total_supply'] %></td>
+            </tr>
+          </tbody>
+        <% end %>
+      <% end %>
+    <% end %>
+  </table>
+  <footer id="footer-container"class="text-center text-lg-start pt-4">
+    <div class="container p-4">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h5 id = "footer-main-txt" class="text-uppercase mb-4">OUR WORLD</h5>
+
+          <ul id = "footer-links" class="list-unstyled mb-4">
+            <li>
+              <a href="#!" class="footer-secondary-txt">Learn About Crypto</a>
+            </li>
+            <li>
+              <a href="#!" class="footer-secondary-txt">Financial Market News</a>
+            </li>
+            <li>
+              <a href="#!" class="footer-secondary-txt">Crypto Investor Courses</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h5 id = "footer-main-txt" class="text-uppercase mb-4">Assistance</h5>
+
+          <ul id = "footer-links" class="list-unstyled">
+            <li>
+              <a href="#!" class="footer-secondary-txt">Contact us</a>
+            </li>
+            <li>
+              <a href="#!" class="footer-secondary-txt">About us</a>
+            </li>
+            <li>
+              <a href="#!" class="footer-secondary-txt">Report a Bug</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h5 id = "footer-main-txt" class="text-uppercase mb-4">Careers</h5>
+
+          <ul id = "footer-links" class="list-unstyled">
+            <li>
+              <a href="#!" class="footer-secondary-txt">Jobs</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <h5 id = "footer-main-txt" class="text-uppercase mb-4">Newsletter</h5>
+
+          <div class="form-outline form-white mb-4">
+            <input type="email" id="form5Example2" class="form-control" />
+          </div>
+
+          <button type="submit" id ="btn-footer" class="btn btn-outline-white btn-block">Subscribe</button>
+        </div>
+      </div>
+    </div>
+
+    <div id = "footer-main-txt" class="footer-copyright p-3">
+      © 2022 Copyright MyCryptofolio
+    </div>
+  </footer>
+</div>
