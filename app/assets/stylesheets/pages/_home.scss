@@ -20,11 +20,11 @@ body {
   font-size: 80px;
   font-weight: bolder;
   text-shadow: 2px 2px 4px black;
-  font-family: $title-font;
+  font-family: $main-font;
 }
 
 .container p {
-  color: white;
+  color: white ;
   margin-top: 2rem;
   font-size: 24px;
   font-weight: medium;
@@ -35,7 +35,7 @@ body {
 .crypto-banner-btn {
   margin-top: 2rem;
   .btn {
-    font-family: $body-font;
+    font-family: $sub-font;
     font-weight: medium;
     box-shadow: 2px 2px 4px #67450D;
     padding: 0.6rem;
@@ -51,10 +51,13 @@ body {
 #about h2 {
   text-align: center;
   text-transform: uppercase;
+  font-family: $main-font;
+  font-weight: bolder;
+  font-size: 40px;
 }
 
 #about span {
-  color: #724d11;
+  color: #8d6017;
 }
 
 #images {
@@ -63,10 +66,12 @@ body {
 }
 
 .carousel-item h4 {
+  font-family: $title-font;
   margin-top: 3rem;
   margin-bottom: 1.5rem;
   color: black;
   text-align: center;
+  font-weight: medium;
 }
 
 .home-page-wrapper {
