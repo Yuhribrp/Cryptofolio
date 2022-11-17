@@ -3,7 +3,6 @@ class CryptosController < ApplicationController
   before_action :api_connect, only: %i[index]
 
   def index
-    @cryptos_list = %w[BTC ETH USDT BNB USDC BUSD XRP ADA DOGE MATIC]
     @cryptos = Crypto.all
     @user_cryptos = Crypto.where(user_id: current_user.id)
   end

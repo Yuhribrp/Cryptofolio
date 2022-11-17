@@ -1,0 +1,3 @@
+module Constants
+  CRYPTO_LIST = %w[BTC ETH USDT BNB USDC BUSD XRP ADA DOGE MATIC]
+end

@@ -1,0 +1,98 @@
+.crypto-banner-btn {
+  margin-top: 2rem;
+
+  .home-slide-btn {
+      border-radius: 5%;
+      font-family: $title-font;
+      font-weight: bolder;
+      text-decoration: none;
+      background: rgba(245, 245, 245, 0.555);
+      border: 2px solid;
+      line-height: 1;
+      margin: .7em;
+      padding: 1em 2em;
+      color: #000000;
+      transition: 0.55s;
+      letter-spacing: .1rem;
+
+      &:hover,
+      &:focus {
+        border-color: adjust-hue(#000000, 45deg);
+        color: rgb(255, 255, 255);
+      }
+    }
+
+    .home-slide-btn:hover,
+    .home-slide-btn:focus {
+      box-shadow:
+        inset -6em 0 0 0 adjust-hue(#000000, 45deg),
+        inset 6em 0 0 0 adjust-hue(#000000, 45deg);
+    }
+}
+
+
+
+.btn-div {
+  margin-top: -16rem;
+
+  .slide-btn {
+      border-radius: 5%;
+      font-family: $title-font;
+      font-weight: bolder;
+      text-decoration: none;
+      background: rgba(245, 245, 245, 0.555);
+      border: 2px solid;
+      line-height: 1;
+      margin: 0.5em;
+      padding: 1em 2em;
+      color: #000000;
+      transition: 0.55s;
+      letter-spacing: .1rem;
+
+      &:hover,
+      &:focus {
+        border-color: adjust-hue(#000000, 45deg);
+        color: rgb(255, 255, 255);
+      }
+    }
+
+    .slide-btn:hover,
+    .slide-btn:focus {
+      box-shadow:
+        inset -6em 0 0 0 adjust-hue(#000000, 45deg),
+        inset 6em 0 0 0 adjust-hue(#000000, 45deg);
+    }
+}
+
+
+.page-main {
+  .slide-btn {
+      margin-top: 2rem;
+      border-radius: 5%;
+      font-family: $title-font;
+      font-weight: bolder;
+      text-decoration: none;
+      background: rgba(245, 245, 245, 0.555);
+      border: 2px solid;
+      line-height: 1;
+      margin: 0.5em;
+      padding: 1em 2em;
+      color: #000000;
+      transition: 0.55s;
+      letter-spacing: .1rem;
+
+      &:hover,
+      &:focus {
+        border-color: adjust-hue(#000000, 45deg);
+        color: rgb(255, 255, 255);
+      }
+    }
+
+    .slide-btn:hover,
+    .slide-btn:focus {
+      box-shadow:
+        inset -6em 0 0 0 adjust-hue(#000000, 45deg),
+        inset 6em 0 0 0 adjust-hue(#000000, 45deg);
+    }
+
+}

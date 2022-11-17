@@ -6,7 +6,6 @@ class PagesController < ApplicationController
   end
 
   def live_market
-    @cryptos_list = %w[BTC ETH USDT BNB USDC BUSD XRP ADA DOGE MATIC]
     @symbol = params['text']
     @symbol.upcase! if @symbol.present?
   end

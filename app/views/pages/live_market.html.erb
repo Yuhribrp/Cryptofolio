@@ -1,7 +1,7 @@
 <div class="live_market-wrapper">
   <div class="live-market" style="background-image: linear-gradient(-225deg, rgba(0,71,198,0.1) 0%, rgba(0,36,61,0.1) 93%), url(<%= image_path 'live-market.jpg' %>);">
     <h2> Crypto Currence Live Market </h2>
-    <%= link_to "Cryptofolio", cryptos_path, class: "btn btn-primary", type: "button", id: "new-btn" %>
+    <div class="btn-div"><%= link_to "Cryptofolio", cryptos_path, class: "slide-btn", type: "button" %></div>
     <div data-controller="search-coins">
       <%= form_with url: pages_live_market_path,
         method: :get,

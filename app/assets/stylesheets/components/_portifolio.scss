@@ -6,8 +6,8 @@ body {
   height: 100vh;
   margin: 0;
 
-  font: 500 100% system-ui, sans-serif;
-  text-transform: uppercase;
+  // font: 500 100% system-ui, sans-serif;
+  // text-transform: uppercase;
 }
 
 .page-wrap {
@@ -42,6 +42,7 @@ body {
   border-top: 1px solid white;
   color: white;
   font-family: $main-font;
+  font-weight: bold;
 }
 
 .page-nav {
@@ -49,6 +50,7 @@ body {
   background: #212529;
   color: white;
   font-family: $main-font;
+  font-weight: bold;
 }
 
 .page-footer {
@@ -73,12 +75,6 @@ body {
 details p {
   text-transform: none;
   text-align: left;
-}
-
-#add-btn {
-  font-family: $sub-font;
-  border-radius: 5%;
-  font-size: small;
 }
 
 table {

@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <% for x in @coins['data'] %>
-    <% for coin in @cryptos_list %>
+    <% for coin in Constants::CRYPTO_LIST %>
       <% if coin.eql?(x['symbol']) %>
         <tbody>
           <tr>
