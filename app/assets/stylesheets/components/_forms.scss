@@ -1,0 +1,53 @@
+.form-inputs {
+  background: #212529;
+  padding: 15px 30px;
+  margin-top: 50px;
+  border-radius: 2.5%;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+
+  h4 {
+    font-family: $title-font;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #B1A3E4;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #57bbd4;
+    border-color: #57D3D4;
+    font-family: $title-font;
+  }
+
+  .btn:hover,
+  .btn:focus {
+    background-color: #2b6969;
+    border-color: #2b6969;
+    letter-spacing: 2px;
+  }
+
+  label {
+    color: #B1A3E4;
+    font-family: $title-font;
+  }
+
+  a {
+    color: #57D3D4;
+    font-family: $title-font;
+  }
+}
+    .sign-up-link {
+      a {
+        color: #57bbd4;
+        font-weight: bold;
+        font-family: $title-font;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #186497;
+      }
+    }
