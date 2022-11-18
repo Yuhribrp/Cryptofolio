@@ -11,7 +11,16 @@
     <article>
       <details>
         <summary>Live Market Prices</summary>
-        <p>bla</p>
+          <div class="row">
+            <% @coins_data.each do |coin| %>
+              <div class="col-sm-2" id="prices-grid">
+                <tr>
+                  <td><p><%= coin['name'] %></p></td>
+                  <td><small>$<%= coin['quote']['USD']['price'] %></small></td>
+                </tr>
+              </div>
+            <% end %>
+          </div>
       </details>
     </article>
   </nav>
@@ -38,22 +47,17 @@
         </tr>
       </thead>
       <tbody>
-        <% @user_cryptos.each do |crypto| %>
-          <% crypto.symbol.upcase! %>
-            <% @coins&.dig('data').each do |coin| %>
-              <% if crypto.symbol.upcase.eql?(coin&.dig('symbol')) %>
-                <tr>
-                  <td data-label="Name"><%= coin['name'] %></td>
-                  <td data-label="Cost Paid">$<%= crypto.unit_price %></td>
-                  <td data-label="Amount Owned"><%= crypto.amount_owned %></td>
-                  <td data-label="Current Price">$<%= coin['quote']['USD']['price'] %></td>
-                  <td data-label="Current Total Value">$<%= coin['quote']['USD']['price'].to_d * crypto.amount_owned %></td>
-                  <td data-label="Total Paid">$<%= crypto.unit_price * crypto.amount_owned %></td>
-                  <td data-label="Profit/Loss"><%= number_to_currency((coin['quote']['USD']['price'].to_d * crypto.amount_owned) - (crypto.unit_price * crypto.amount_owned)) %></td>
-                  <td data-label="Percent Changes"><%= coin['quote']['USD']['percent_change_1h'] %>%</td>
-                </tr>
-              <% end %>
-            <% end %>
+        <% @parsed_cryptos.each do |crypto| %>
+          <tr>
+            <td data-label="Name"><%= crypto['name'] %></td>
+            <td data-label="Cost Paid">$<%= crypto['cost_paid'] %></td>
+            <td data-label="Amount Owned"><%= crypto['amount_owned'] %></td>
+            <td data-label="Current Price">$<%= crypto['current_price'] %></td>
+            <td data-label="Current Total Value">$<%= crypto['current_total_value'] %></td>
+            <td data-label="Total Paid">$<%= crypto['total_paid'] %></td>
+            <td data-label="Profit/Loss"><%= number_to_currency(crypto['profit_loss']) %></td>
+            <td data-label="Percent Changes"><%= crypto['percent_changes'] %>%</td>
+          </tr>
         <% end %>
       </tbody>
     </table>

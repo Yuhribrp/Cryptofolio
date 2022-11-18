@@ -7,8 +7,6 @@
   background-position-y: -500px;
 }
 
-
-
 .live-market h2 {
   color: white;
   font-size: 50px;
@@ -19,6 +17,25 @@
 
 .live_market-wrapper {
   background: rgb(241, 241, 241);
+}
+
+#prices-grid {
+  margin-top: 1rem;
+  font-family: $title-font;
+  border: white;
+  padding: .1rem;
+  word-break: break-all;
+
+  p{
+    text-align: center;
+    font-weight: bolder;
+    color: #6c79b4;
+  }
+
+  small {
+    font-weight: medium;
+    letter-spacing: .1rem;
+  }
 }
 
 #myInput {

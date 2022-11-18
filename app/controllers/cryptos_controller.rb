@@ -4,7 +4,7 @@ class CryptosController < ApplicationController
 
   def index
     @cryptos = Crypto.all
-    @user_cryptos = Crypto.where(user_id: current_user.id)
+    crypto_parser
   end
 
   def show
@@ -54,6 +54,17 @@ class CryptosController < ApplicationController
   end
 
   private
+
+  def crypto_parser
+    @parsed_cryptos = []
+    @user_cryptos = Crypto.where(user_id: current_user.id)
+    @coins_data = @coins&.dig('data')
+    @user_cryptos.each do |crypto|
+      @coins_data.each do |coin|
+        @parsed_cryptos << CryptosHelper.cryptofolio_struct(coin, crypto) if crypto.symbol.upcase.eql?(coin&.dig('symbol'))
+      end
+    end
+  end
 
   def set_crypto
     @crypto = Crypto.find(params[:id])
