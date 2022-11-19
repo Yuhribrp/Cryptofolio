@@ -1,14 +1,15 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery
   before_action :authenticate_user!
-  require 'net/http'
-  require 'json'
+  require 'faraday'
 
   private
 
   def api_connect
-    @url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=b318389a-fdb6-4fc1-b6a1-25ca8a38e3d2&start=1&limit=10&convert=USD'
-    @uri = URI(@url)
-    @response = Net::HTTP.get(@uri)
-    @coins = JSON.parse(@response)
+    url = Constants::BASE_URL
+    conn = Faraday.new("#{url}CMC_PRO_API_KEY=#{ENV.fetch('MKT_API_KEY')}&start=1&limit=15&convert=USD") do |f|
+      f.response :json
+    end
+    @coins = conn.get.body
   end
 end
