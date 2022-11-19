@@ -33,7 +33,7 @@
 
 
 .btn-div {
-  margin-top: -16rem;
+  margin-top: -12rem;
 
   .slide-btn {
       border-radius: 5%;
@@ -95,4 +95,23 @@
         inset 6em 0 0 0 adjust-hue(#000000, 45deg);
     }
 
+}
+
+#modal-btn {
+  font-size: 16px;
+  text-align: center;
+  background-color: none;
+  color: #65a2ff;
+  text-shadow: 1px 1px 2px #01204e;
+  font-weight: bold;
+  font-family: $body-font!important;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: none!important;
+}
+
+#modal-btn:hover {
+  color: #3976d1;
+  font-family: $body-font;
+  font-weight: bold;
 }
