@@ -32,9 +32,9 @@
         <tr>
           <th scope="col">Name</th>
           <th scope="col">Cost Paid</th>
-          <th scope="col">Amount Owned</th>
+          <th scope="col">Amount</th>
           <th scope="col">Current Price</th>
-          <th scope="col">Current Total Value</th>
+          <th scope="col">Total Value</th>
           <th scope="col">Total Paid</th>
           <th scope="col">Profit/Loss</th>
           <th scope="col">Percent Change
@@ -44,6 +44,7 @@
               <option value="1">1 Week Change</option>
             </select>
           </th>
+          <th scope="col">Manager</th>
         </tr>
       </thead>
       <tbody>
@@ -51,12 +52,13 @@
           <tr>
             <td data-label="Name"><%= crypto['name'] %></td>
             <td data-label="Cost Paid">$<%= crypto['cost_paid'] %></td>
-            <td data-label="Amount Owned"><%= crypto['amount_owned'] %></td>
+            <td data-label="Amount"><%= crypto['amount_owned'] %></td>
             <td data-label="Current Price">$<%= crypto['current_price'] %></td>
-            <td data-label="Current Total Value">$<%= crypto['current_total_value'] %></td>
+            <td data-label="Total Value">$<%= crypto['current_total_value'] %></td>
             <td data-label="Total Paid">$<%= crypto['total_paid'] %></td>
             <td data-label="Profit/Loss"><%= number_to_currency(crypto['profit_loss']) %></td>
             <td data-label="Percent Changes"><%= crypto['percent_changes'] %>%</td>
+            <td data-label="Manager"><%= button_to "Delete", crypto_path(crypto["id"]), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete yours #{crypto["name"]}'s ?"}, method: :delete, class: "btn btn-danger", id: "btn-danger" %></td>
           </tr>
         <% end %>
       </tbody>

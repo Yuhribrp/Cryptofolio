@@ -12,6 +12,23 @@
 }
 .navbar-lewagon .nav-link
 {
-  font-family: $sub-font;
-  color: #F4F4F4;
+        font-family: $sub-font;
+        position: relative;
+        display: inline-block;
+        font-size: 1em;
+        font-weight: 600;
+        color: #F4F4F4;
+        overflow: hidden;
+        background: linear-gradient(to right, #57D3D4, #57D3D4 50%, #F4F4F4 50%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% 100%;
+        background-position: 100%;
+        transition: background-position 275ms ease;
+        text-decoration: none;
+
+        &:hover {
+          background-position: 0 100%;
+        }
 }

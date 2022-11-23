@@ -17,7 +17,8 @@ module CryptosHelper
       current_total_value: total_value_calc(coin, crypto),
       total_paid: total_paid_calc(crypto),
       profit_loss: profit_loss_calc(coin, crypto),
-      percent_changes: coin['quote']['USD']['percent_change_1h']
+      percent_changes: coin['quote']['USD']['percent_change_1h'],
+      id: crypto.id
     }.with_indifferent_access
   end
 

@@ -1,15 +1,23 @@
+<div class="form-screen" style="background-image: linear-gradient(-225deg, rgba(400,71,198,0.1) 0%, rgba(0,36,61,0.3) 93%), url(<%= image_path 'eth-bg.jpg' %>);">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <%= simple_form_for(@crypto) do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-<%= simple_form_for(@crypto) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+          <div class="form-inputs" id="formInputs">
+            <%= f.input :symbol, collection: Constants::CRYPTO_LIST %>
+            <%= f.input :unit_price %>
+            <%= f.input :amount_owned %>
 
-  <div class="form-inputs">
-    <%= f.input :symbol %>
-    <%= f.input :unit_price %>
-    <%= f.input :amount_owned %>
+            <div class="form-actions">
+              <%= f.button :submit, class: "btn btn-primary" %>
+            </div>
+            <%= link_to cryptos_path, :class=> "back-arrow" do %><i class="fa-regular fa-circle-left" aria-hidden="true" target="_blank"></i><% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+</div>

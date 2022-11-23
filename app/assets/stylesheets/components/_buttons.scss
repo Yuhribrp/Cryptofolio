@@ -115,3 +115,130 @@
   font-family: $body-font;
   font-weight: bold;
 }
+
+#btn-danger {
+  font-size: 10px;
+  width: 50%;
+  height: 40%;
+  font-family: $title-font;
+  font-weight: bolder;
+  text-decoration: none;
+  background: rgba(245, 245, 245, 0.425);
+  border: 2px solid;
+  color: #a31515;
+  transition: 0.55s;
+
+  &:hover,
+  &:focus {
+    border-color: adjust-hue(#7a1561, 45deg);
+    color: rgb(255, 255, 255);
+  }
+}
+
+#btn-danger:hover,
+#btn-danger:focus {
+  box-shadow:
+    inset -6em 0 0 0 adjust-hue(#7a1561, 45deg),
+    inset 6em 0 0 0 adjust-hue(#7a1561, 45deg);
+}
+
+@media screen and (max-width: 600px) {
+  #btn-danger {
+      font-size: 7px;
+      width: 20%;
+      height: 10%;
+      font-family: $title-font;
+      font-weight: bolder;
+      text-decoration: none;
+      background: rgba(245, 245, 245, 0.425);
+      border: 2px solid;
+      color: #a31515;
+      transition: 0.55s;
+
+      &:hover,
+      &:focus {
+        border-color: adjust-hue(#7a1561, 65deg);
+        color: rgb(255, 255, 255);
+      }
+    }
+}
+
+@media screen and (min-width: 600px) {
+  #btn-danger {
+    font-size: 6px;
+    width: 50px;
+    height: 25px;
+    font-family: $title-font;
+    font-weight: bolder;
+    text-decoration: none;
+    background: rgba(245, 245, 245, 0.425);
+    border: 2px solid;
+    color: #a31515;
+    transition: 0.55s;
+    text-align: center;
+
+    &:hover,
+    &:focus {
+      border-color: adjust-hue(#7a1561, 45deg);
+      color: rgb(255, 255, 255);
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #btn-danger {
+    font-size: 7px;
+    width: 60px;
+    height: 30px;
+    font-family: $title-font;
+    font-weight: bolder;
+    text-decoration: none;
+    background: rgba(245, 245, 245, 0.425);
+    border: 2px solid;
+    color: #a31515;
+    transition: 0.55s;
+    text-align: center;
+
+    &:hover,
+    &:focus {
+      border-color: adjust-hue(#7a1561, 45deg);
+      color: rgb(255, 255, 255);
+    }
+  }
+
+  #btn-danger:hover,
+  #btn-danger:focus {
+    box-shadow:
+      inset -6em 0 0 0 adjust-hue(#7a1561, 45deg),
+      inset 6em 0 0 0 adjust-hue(#7a1561, 45deg);
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  #btn-danger {
+      font-size: 8px;
+      width: 50%;
+      height: 30%;
+      font-family: $title-font;
+      font-weight: bolder;
+      text-decoration: none;
+      background: rgba(245, 245, 245, 0.425);
+      border: 2px solid;
+      color: #a31515;
+      transition: 0.55s;
+      text-align: center;
+
+      &:hover,
+      &:focus {
+        border-color: adjust-hue(#7a1561, 45deg);
+        color: rgb(255, 255, 255);
+      }
+    }
+
+    #btn-danger:hover,
+    #btn-danger:focus {
+      box-shadow:
+        inset -6em 0 0 0 adjust-hue(#7a1561, 45deg),
+        inset 6em 0 0 0 adjust-hue(#7a1561, 45deg);
+    }
+}
