@@ -17,7 +17,20 @@
             <%= link_to cryptos_path, :class=> "back-arrow" do %><i class="fa-regular fa-circle-left" aria-hidden="true" target="_blank"></i><% end %>
           </div>
         <% end %>
+        <div class="preview-value">
+          <button onclick="calc()">Check Total Value</button><br/>
+          Total Value: <span id='value'></span>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  function calc()
+  {
+    var cryptoPrice = document.getElementById("crypto_unit_price").value;
+    var amountOwned = document.getElementById("crypto_amount_owned").value;
+    document.getElementById('value').innerHTML=cryptoPrice*amountOwned;
+  }
+</script>

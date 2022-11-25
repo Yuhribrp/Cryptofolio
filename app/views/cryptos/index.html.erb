@@ -3,7 +3,17 @@
     <article>
       <details>
         <summary>Crypto News</summary>
-        <p>bla</p>
+          <div class="news">
+            <% @top_headlines.each do |news| %>
+             <div class="card-category" style="background: url(<%= news.urlToImage %>)">
+                <b><%= news.title %></b>
+                <br/><br/>
+                <small><%= news.content %></small>
+                <br/>
+                <%= button_to "Visit Site", "#{news.url}", class: "btn btn-primary btn-sm", id: "btn-news" %>
+              </div>
+            <% end %>
+          </div>
       </details>
     </article>
   </header>

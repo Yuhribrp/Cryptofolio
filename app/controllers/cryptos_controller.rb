@@ -1,6 +1,9 @@
 class CryptosController < ApplicationController
   before_action :set_crypto, only: %i[show edit update destroy]
   before_action :api_connect, only: %i[index]
+  before_action :news_api, only: %i[index]
+
+  require 'news-api'
 
   def index
     @cryptos = Crypto.all
@@ -53,6 +56,14 @@ class CryptosController < ApplicationController
   end
 
   private
+
+  def news_api
+    newsapi = News.new(ENV.fetch('NEWS_API_KEY'))
+    @top_headlines = newsapi.get_top_headlines(q: 'bitcoin',
+                                               category: 'business',
+                                               language: 'en',
+                                               country: 'us')
+  end
 
   def crypto_parser
     @parsed_cryptos = []
