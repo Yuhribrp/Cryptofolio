@@ -3,17 +3,33 @@
     <article>
       <details>
         <summary>Crypto News</summary>
-          <div class="news">
+          <section class="cards-news">
             <% @top_headlines.each do |news| %>
-             <div class="card-category" style="background: url(<%= news.urlToImage %>)">
-                <b><%= news.title %></b>
-                <br/><br/>
-                <small><%= news.content %></small>
-                <br/>
-                <%= button_to "Visit Site", "#{news.url}", class: "btn btn-primary btn-sm", id: "btn-news" %>
-              </div>
+              <article class="card-news">
+                <picture class="thumbnail">
+                  <%= image_tag  news.urlToImage || "", class: 'category__01', alt: '' %>
+                </picture>
+                <div class="card-content">
+                  <p><%= link_to "Visit Site", "#{news.url}", class: "btn btn-outline-primary", id: "category category__01" %></p>
+                  <h2><%= news.title %></h2>
+                </div>
+                <div class="news-footer">
+                  <div class="post-meta">
+                  <% time = ((Time.now - news.publishedAt.to_time) / 1.minute) %>
+                  <% if time >= 60 %>
+                    <span class="timestamp"><i class="fa fa-clock-o"></i> <%= ((Time.now - news.publishedAt.to_time) / 1.hour).round %> hours ago</span>
+                  <% elsif time <= 60 %>
+                    <span class="timestamp"><i class="fa fa-clock-o"></i> <%= time.round %> minutes ago</span>
+                  <% elsif time >= 1440 %>
+                    <span class="timestamp"><i class="fa fa-clock-o"></i> <%= ((Time.now - news.publishedAt.to_time) / 1.day).round %> day ago</span>
+                  <% else %>
+                    <span class="timestamp"><i class="fa fa-clock-o"></i> Undefined</span>
+                  <% end %>
+                  </div>
+                </div>
+              </article>
             <% end %>
-          </div>
+          </section>
       </details>
     </article>
   </header>

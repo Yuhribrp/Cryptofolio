@@ -33,4 +33,15 @@ module CryptosHelper
   def self.profit_loss_calc(coin, crypto)
     total_value_calc(coin, crypto) - total_paid_calc(crypto)
   end
+
+  def self.from_to_news(preposition)
+    current_date = Date.today
+
+    date_hash = {
+      from: (current_date - 1.days).strftime("%Y/%m/%d"),
+      to: current_date.strftime("%Y/%m/%d")
+    }.with_indifferent_access
+
+    date_hash[preposition]
+  end
 end

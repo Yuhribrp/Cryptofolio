@@ -59,10 +59,17 @@ class CryptosController < ApplicationController
 
   def news_api
     newsapi = News.new(ENV.fetch('NEWS_API_KEY'))
-    @top_headlines = newsapi.get_top_headlines(q: 'bitcoin',
+    @top_headlines = newsapi.get_top_headlines(q: 'crypto',
                                                category: 'business',
                                                language: 'en',
                                                country: 'us')
+
+    # @top_headlines = newsapi.get_everything(q: 'crypto',
+    #                                         from: CryptosHelper.from_to_news('from'),
+    #                                         to: CryptosHelper.from_to_news('to'),
+    #                                         language: 'en',
+    #                                         sortBy: 'relevancy',
+    #                                         page: 1)
   end
 
   def crypto_parser
