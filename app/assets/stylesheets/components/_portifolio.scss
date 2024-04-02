@@ -194,8 +194,12 @@ tbody {
   }
 
   table th {
-    font-size: .6em;
+    font-size: .45em;
     word-break: break-all;
+  }
+
+  #select {
+    width: 85%;
   }
 }
 
@@ -210,8 +214,7 @@ tbody {
   }
 
   table th {
-    font-size: .65em;
-    //word-break: break-all;
+    font-size: .55em;
   }
 }
 
@@ -226,8 +229,7 @@ tbody {
   }
 
   table th {
-    font-size: .7em;
-    //word-break: break-all;
+    font-size: .6em;
   }
 }
 
@@ -243,7 +245,6 @@ tbody {
 
   table th {
     font-size: .73em;
-    //word-break: break-all;
   }
 }
 
@@ -259,6 +260,20 @@ tbody {
 
   table th {
     font-size: .77em;
-    //word-break: break-all;
+  }
+}
+
+@media screen and (min-width: 628px) and (max-width: 1268) {
+  table caption {
+    font-size: .6em;
+  }
+
+  table td {
+    font-size: .4em;
+  }
+
+  table th {
+    font-size: .4em;
+    word-break: break-all;
   }
 }

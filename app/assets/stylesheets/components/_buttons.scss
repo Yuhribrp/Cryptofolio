@@ -149,6 +149,11 @@
 }
 
 @media screen and (max-width: 600px) {
+
+  .slide-btn {
+    width: 90%;
+    letter-spacing: .5rem;
+  }
   #btn-danger {
       font-size: 7px;
       width: 20%;
