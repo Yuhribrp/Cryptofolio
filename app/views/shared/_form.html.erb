@@ -1,7 +1,7 @@
 <div class="form-screen" style="background-image: linear-gradient(-225deg, rgba(400,71,198,0.1) 0%, rgba(0,36,61,0.3) 93%), url(<%= image_path 'eth-bg.jpg' %>);">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-xs-12 col-sm-4 col-sm-offset-4 mb-2">
+      <div class="col-12 col-sm-4 mb-2 d-flex justify-content-center" id="formResponsive">
         <%= simple_form_for(@crypto) do |f| %>
           <%= f.error_notification %>
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -17,10 +17,10 @@
             <%= link_to cryptos_path, :class=> "back-arrow" do %><i class="fa-regular fa-circle-left" aria-hidden="true" target="_blank"></i><% end %>
           </div>
         <% end %>
-        <div class="preview-value">
+        <%# <div class="preview-value">
           <button onclick="calc()">Check Total Value</button><br/>
           Total Value: <span id='value'></span>
-        </div>
+        </div> %>
       </div>
     </div>
   </div>
